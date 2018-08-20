@@ -335,15 +335,15 @@
 		<div class="nav-collapse sidebar-nav">
 			<ul class="nav nav-tabs nav-stacked main-menu">
 				<li><a href="{{URL::to('/dashboard')}}"><i class="icon-bar-chart"></i><span class="hidden-tablet">Dashboard</span></a></li>	
-				<li><a href="messages.html"><i class="icon-envelope"></i><span class="hidden-tablet">All Category</span></a></li>
+				<li><a href="{{URL::to('/all-category')}}"><i class="icon-envelope"></i><span class="hidden-tablet">All Category</span></a></li>
 				<li><a href="{{URL::to('/add-category')}}"><i class="icon-tasks"></i><span class="hidden-tablet">Add Category</span></a></li>
 				<li><a href="ui.html"><i class="icon-eye-open"></i><span class="hidden-tablet">All Brands</span></a></li>
 				<li><a href="widgets.html"><i class="icon-dashboard"></i><span class="hidden-tablet">Add Brand</span></a></li>
 				<li>
-					<a class="dropmenu" href="#"><i class="icon-folder-close-alt"></i><span class="hidden-tablet">Products</span><span class="label label-important"> 3 </span></a>
+					<a class="dropmenu" href="#"><i class="icon-folder-close-alt"></i><span class="hidden-tablet">Products</span><span class="label label-important"></span></a>
 					<ul>
-						<li><a class="submenu" href="submenu.html"><i class="icon-file-alt"></i><span class="hidden-tablet">Add Product</span></a></li>
-						<li><a class="submenu" href="submenu2.html"><i class="icon-file-alt"></i><span class="hidden-tablet">All Products</span></a></li>
+						<li><a class="submenu" href="{{URL::to('/add-product')}}"><i class="icon-file-alt"></i><span class="hidden-tablet">Add Product</span></a></li>
+						<li><a class="submenu" href="{{URL::to('/all-product')}}"><i class="icon-file-alt"></i><span class="hidden-tablet">All Products</span></a></li>
 					</ul>	
 				</li>
 				<li><a href="form.html"><i class="icon-edit"></i><span class="hidden-tablet"> Slider</span></a></li>
@@ -429,7 +429,18 @@
     <script src="{{asset('backend/js/retina.js')}}"></script>
     <script src="{{asset('backend/js/custom.js')}}"></script>
 	<!-- end: JavaScript-->
-	
+	<script type="text/javascript" src="{{asset('https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.4.0/bootbox.min.js')}}"></script>
+	<script>    
+		$(document).on("click", "#delete", function(e){
+			e.preventDefault();
+			var link = $(this).attr("href");
+			bootbox.confirm("Are you want to delete!!", function(confirmed){
+				if (confirmed) {
+					window.location.href = link;
+				};
+			});
+		});
+	</script>
 </body>
 
 <!-- Mirrored from bootstrapmaster.com/live/metro/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 08 Jan 2018 16:56:47 GMT -->
